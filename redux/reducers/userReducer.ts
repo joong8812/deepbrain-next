@@ -46,13 +46,20 @@ const userSlice = createSlice({
         },
         loginSuccess(state: UserState, {payload}){ 
             state.data = [...state.data, payload]
-            state.loading = false;
-            
+            state.loading = false;  
         },
         loginFailure(state: UserState, {payload}){ 
             state.data = payload;
             state.loading = false;
-        }
+        },
+        logoutRequest(state: UserState, payload){
+            state.loading = false; 
+        },
+        logoutSuccess(state: UserState, {payload}){ 
+            state.loading = false;
+            localStorage.clear()
+            window.location.href = '/'
+        },
     }
 })
 const { reducer, actions } = userSlice
