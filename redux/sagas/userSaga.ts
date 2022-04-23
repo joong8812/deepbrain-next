@@ -42,7 +42,6 @@ function* join(user: UserJoinType){
     }
 }
 export function* watchJoin(){
-    alert('process 2.5')
     yield takeLatest(userActions.joinRequest, join)
 }
 
