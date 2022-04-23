@@ -50,6 +50,7 @@ function* login(login: UserLoginType){
     try{
         const response : UserLoginSuccessType = yield loginApi(login.payload)
         yield put(userActions.loginSuccess(response))
+        window.location.href = '/'
     }catch(error){
          yield put(userActions.loginFailure(error))
     }
