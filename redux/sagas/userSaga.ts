@@ -10,6 +10,12 @@ interface UserJoinType{
         name:string, phone:string, birth:string, address:string
     }
 }
+interface UserLoginType{
+    type: string;
+    payload: {
+        userid:string, password:string
+    }
+}
 interface UserJoinSuccessType{
     type: string;
     payload: {
@@ -28,5 +34,18 @@ function* join(user: UserJoinType){
     }
 }
 export function* watchJoin(){
+    alert('process 2.5')
     yield takeLatest(userActions.joinRequest, join)
 }
+
+// function* login(user: UserLoginType){
+//     try{
+//         const response : UserJoinSuccessType = yield postUser(user.payload)
+//         yield put(userActions.joinSuccess(response))
+//     }catch(error){
+//          yield put(userActions.joinFailure(error))
+//     }
+// }
+// export function* watchLogin(){
+//     yield takeLatest(userActions.joinRequest, login)
+// }

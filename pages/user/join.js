@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import { useDispatch } from 'react-redux';
+import { userActions } from '../../redux/reducers/userReducer.ts'
 import tableStyles from '../common/styles/table.module.css'
 
 export default function  Join(){
@@ -62,7 +63,7 @@ export default function  Join(){
                     <td><input type="text" name='address' onChange={handleChange}/></td>
                 </tr>
                 <tr>
-                    <td colSpan={2}><button type="submit">회원가입</button><br /></td>
+                    <td colSpan={2}><button type="submit" onClick={e => {window.location.href = './login'}}>회원가입</button><br /></td>
                 </tr>
             </tbody>
         </table>
